@@ -6,7 +6,6 @@ class Login extends Component {
     return (
       <div>
         <Form/>
-        
       </div>
     );
   }
