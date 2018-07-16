@@ -10,8 +10,9 @@ class App extends Component {
     return (
       <div>
         <Navbar/>
-        <SignUp/>
-        
+        <div>
+          <Login/>
+        </div>        
       </div>
     );
   }

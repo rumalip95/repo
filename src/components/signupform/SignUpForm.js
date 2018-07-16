@@ -5,9 +5,9 @@ import React, { Component } from 'react';
 class SignUp extends Component {
   render() {
     return (
-      <div>
+      <div className="offset-sm-2 offset-md-3 row">
       
-       <div className="container"> 
+       <div className="container">
 
           <div className="row">
             <div className="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
