@@ -5,9 +5,13 @@ import Scroll from '../components/scroll/Scroll.js'
 class Main extends Component {
   render() {
     return (
-      <div style={{paddingTop : 60}} className="col-md-8 offset-md-1">
-        <Carousal/>
+      <div className = "row">
+        <div style={{paddingTop : 60}} className="col-md-7 offset-md-1">
+          <Carousal/>
+        </div>
+        <div style={{paddingTop : 60}} className="col-md-4">
         <Scroll/>
+        </div>
       </div>
     );
   }

@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         <div style={{paddingTop:40}}>
           <Navbar/>
-          <div style={{backgroundColor : "#ffff"}}  className="col-md-8 offset-md-2">
+          <div style={{backgroundColor : "#ffff"}}  className="col-md-10 offset-md-1">
             <Main/>
           </div>        
         </div>

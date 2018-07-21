@@ -34,7 +34,7 @@ class Navbar extends Component {
         
         return (
             
-            <div id="navbarwrap"  className="col-md-8 offset-md-2">
+            <div id="navbarwrap"  className="col-md-10 offset-md-1">
             
                 <div id="navbar" style={navbar}>
               
