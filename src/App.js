@@ -9,10 +9,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
-        <div>
-          <Main/>
-        </div>        
+        <div style={{paddingTop:40}}>
+          <Navbar/>
+          <div style={{backgroundColor : "#ffff"}}  className="col-md-8 offset-md-2">
+            <Main/>
+          </div>        
+        </div>
       </div>
     );
   }

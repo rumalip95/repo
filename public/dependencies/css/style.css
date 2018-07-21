@@ -1,7 +1,7 @@
 body{
     background-image: url("../pics/background2.png");
     background-repeat: repeat; 
-    
+   
 }
 
 
@@ -59,6 +59,8 @@ body{
 /*
  * Form styles
  */
+
+
 .profile-name-card {
     font-size: 16px;
     font-weight: bold;
@@ -208,3 +210,4 @@ body{
 .mainClass{
     background-color: #fff;
 }
+

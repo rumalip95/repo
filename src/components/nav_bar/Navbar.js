@@ -34,9 +34,12 @@ class Navbar extends Component {
         
         return (
             
-            <div id="navbarwrap">
+            <div id="navbarwrap"  className="col-md-8 offset-md-2">
+            
                 <div id="navbar" style={navbar}>
+              
                     <ul id="navbar_list">
+                    
                         <li onClick={()=> this.setState({
                         active : 'Login',
                     })}>Login</li>
@@ -49,15 +52,23 @@ class Navbar extends Component {
                     <li onClick={()=> this.setState({
                         active : 'Home',
                     })}>Home</li>
+                   
                     <li onClick={()=> this.setState({
-                        active : 'Custom Cake',
+                        active : 'Categories',
                     })}>Custom cake</li>
+                    
                     <li onClick={()=> {
                         
                         this.setState({
-                            active : 'Categories',
+                            active : 'Custom Cakes',
                         })
                     }}>Categories</li>
+                    <li onClick={()=> {
+                        
+                        this.setState({
+                            active : 'Cupcakes & Gifts',
+                        })
+                    }}>Cupcakes & Gifts</li>
                 </ul>
             </div>
         );
