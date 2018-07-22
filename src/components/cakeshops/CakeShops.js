@@ -11,6 +11,7 @@ class CakeShops extends Component {
                 title={ele.title}
                 text={ele.text}
                 buttonText={ele.buttonText}
+                image={ele.image}
             />
         )
     })

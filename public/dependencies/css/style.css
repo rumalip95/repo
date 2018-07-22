@@ -190,6 +190,8 @@ body{
 }
 
 #navbarwrap{
+    font-family: 'Sofia';
+    font-size: 22px;
     background-color: #FF8C94;
     position:fixed;
     width:100%;
@@ -242,4 +244,11 @@ background: rgb(245, 76, 118);
 
 .cardStyles{
     background-color: #fffaf9
+}
+
+
+
+/*styles for the scroll bar*/
+#scroll{
+    font-family: 'Merienda', cursive;
 }

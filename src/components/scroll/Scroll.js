@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 class Scroll extends Component {
   render() {
     return (
-      <div style={{position:"right",overflow:"scroll",height:400, overflowX: 'hidden', backgroundColor: '#fffaf9'}}>
+      <div id="scroll" style={{position:"right",overflow:"scroll",height:400, overflowX: 'hidden', backgroundColor: '#fffaf9'}}>
+        <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet"></link>
         <div id="section1" className="container-fluid">
             <h1>Wedding Cakes</h1>
             <img src="../dependencies/pics/wedding.jpg" width="92" alt="alternative txt"></img>

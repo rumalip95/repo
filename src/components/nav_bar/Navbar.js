@@ -37,7 +37,7 @@ class Navbar extends Component {
             <div id="navbarwrap"  className="col-md-10 offset-md-1">
             
                 <div id="navbar" style={navbar}>
-              
+                <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'></link>
                     <ul id="navbar_list" >
                     
                         <li onClick={()=> this.setState({
