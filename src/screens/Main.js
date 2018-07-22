@@ -11,10 +11,10 @@ class Main extends Component {
           <Carousal/>
         </div>
         <div style={{paddingTop : 60}} className="col-md-4">
-        <Scroll/>
+          <Scroll/>
         </div>
-        <div  className="col-md-4">
-        <CakeShops/>
+        <div className="container-fluid">
+          <CakeShops/>
         </div>
       </div>
     );

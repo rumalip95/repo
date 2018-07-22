@@ -4,15 +4,15 @@ import React, { Component } from 'react';
 class Scroll extends Component {
   render() {
     return (
-      <div style={{position:"right",overflow:"scroll",height:400}}>
+      <div style={{position:"right",overflow:"scroll",height:400, overflowX: 'hidden'}}>
         <div id="section1" className="container-fluid">
             <h1>Wedding Cakes</h1>
-            <img src="../dependencies/pics/wedding.jpg" width="92" height="138"></img>
+            <img src="../dependencies/pics/wedding.jpg" width="92" alt="alternative txt"></img>
             <p>Make your wedding day even more special with the perfect wedding cake</p>
         </div>
         <div id="section2" className="container-fluid">
             <h1>Birthday Cakes</h1>
-            <img src="../dependencies/pics/birthday.jpg" width="92" height="138"></img>
+            <img src="../dependencies/pics/birthday.jpg" width="92" alt="alternative txt"></img>
             <p>Find the perfect Birthday Cake for your loved ones</p>
         </div>
         <div id="section3" className="container-fluid">
