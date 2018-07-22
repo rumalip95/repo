@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Carousal from '../components/carousal/Carousal.js'
 import Scroll from '../components/scroll/Scroll.js'
+import CakeShops from '../components/cakeshops/CakeShops.js'
 
 class Main extends Component {
   render() {
@@ -11,6 +12,9 @@ class Main extends Component {
         </div>
         <div style={{paddingTop : 60}} className="col-md-4">
         <Scroll/>
+        </div>
+        <div  className="col-md-4">
+        <CakeShops/>
         </div>
       </div>
     );

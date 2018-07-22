@@ -38,7 +38,7 @@ class Navbar extends Component {
             
                 <div id="navbar" style={navbar}>
               
-                    <ul id="navbar_list">
+                    <ul id="navbar_list" >
                     
                         <li onClick={()=> this.setState({
                         active : 'Login',
