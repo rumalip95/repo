@@ -229,3 +229,17 @@ body{
 ::-webkit-scrollbar-thumb:hover { 
 background: rgb(245, 76, 118); 
 }
+
+.cakeButton{
+    background-color: #FF8C94;
+    border-color: #FF8C94;
+}
+
+.cakeButton:hover{
+    background-color: rgb(245, 76, 118);
+    border-color: rgb(245, 76, 118);
+}
+
+.cardStyles{
+    background-color: #fffaf9
+}
