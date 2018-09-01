@@ -38,7 +38,8 @@ class CakeShops extends Component {
 
     render() {
         return (
-            <div className="col">
+            
+            <div className="col-12">
                 {[this.cakeRenderedArray]}
             </div>
         );

@@ -176,29 +176,43 @@ body{
     display:inline;
     overflow:hidden;
     
+    
 }
 
 #navbar_list li{
     display: block;
     float: left;
     padding:10px;
+    border-right: 1px solid black;
+    border-left: 1pz solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+   
 }
 
 #navbar_list li:hover{
     cursor: pointer;
     color: #505052;
+    
 }
 
 #navbarwrap{
     font-family: 'Sofia';
-    font-size: 22px;
+    text-align: center;
+    font-size: 20px;
     background-color: #FF8C94;
-    position:fixed;
     width:100%;
-    height:50px;
+    height:70px;
     z-index:10;
     color: #252525;
+    
 }
+
+#searchBar{
+    border-right: 0px solid black;
+}
+
+
 
 .activeElem{
     color: #fff
@@ -251,4 +265,129 @@ background: rgb(245, 76, 118);
 /*styles for the scroll bar*/
 #scroll{
     font-family: 'Merienda', cursive;
+}
+/*
+#backgroundMiddle{
+    background-image: url("../pics/background3.png");
+    background-repeat: repeat; 
+}*/
+
+.row{
+    
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+
+}
+
+.para{
+    font-family: 'Concert One', cursive;
+}
+/*
+#carousal{
+    background-image: url("../pics/carousalbackground.png");
+}
+*/
+
+.form-topic{
+    text-align: center;
+    font-family: 'Sofia';
+    color: #e7116a;
+}
+
+#customizing{
+    text-align: left;
+    font-family: 'Courgette', cursive;
+}
+
+#footer{
+    padding-top: 20px;
+    background:#FF8C94;
+   /* background: linear-gradient(#FF8C94, beige);*/
+}
+
+.img-circle{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+
+.logo{
+    padding-left: 250px;
+    padding-top: 10px;
+    width:600px;
+    height:150px;
+}
+
+/*styles in the upload image for customizing*/ 
+#upload{
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding-left: 65px;
+    text-align: center !important;
+    margin-left: 240px;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 10px;
+    width: 500px;
+    height:350px;
+    background-color: #fff;
+    
+}
+
+.cakeUploadsTopic{
+    font-family: 'Sofia';
+    text-align: center;
+    padding-top: 50px;
+}
+
+.cakeUploadsBody{
+    padding-top:40px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+
+}
+
+.downloadLogo{
+    width:75px;
+    height:75px;
+    margin-left: 160px;
+    margin-top:50px;
+}
+
+
+
+
+/* the middle image of the home page*/
+.mid{
+    background-image: url("../pics/berry3.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    width:1000px;
+    height: 600px;
+    
+    
+    
+}
+
+.hovarable:hover{
+    cursor: pointer;
+}
+
+.hoverRed:hover{
+    color:#FF8C94 !important;
+    border-color: #FF8C94;
+}
+
+.greyButton{
+    color:#7a7a7a;
+}
+
+.uploadPic{
+    border:2px dashed #7a7a7a;
+}
+
+.uploadPic:hover{
+    border:2px dashed #FF8C94;
 }

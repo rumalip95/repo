@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from 'react-router-dom/Link';
 
 
 class Navbar extends Component {
@@ -34,42 +35,73 @@ class Navbar extends Component {
         
         return (
             
-            <div id="navbarwrap"  className="col-md-10 offset-md-1">
+            <div id="navbarwrap"  className=" rounded col-md-10 offset-md-1">
             
-                <div id="navbar" style={navbar}>
+                <div id="navbar" style={navbar} >
                 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'></link>
-                    <ul id="navbar_list" >
+                    <ul className="dropdown mega-dropdown" id="navbar_list" >
                     
+                    <Link style={{color:"#252525"}} to="/Login">
                         <li onClick={()=> this.setState({
                         active : 'Login',
                     })}>Login</li>
+                    </Link>
+                    
+                    <Link style={{color:"#252525"}} to="/SignUp">
                         <li onClick={()=> this.setState({
                         active : 'Signup',
                     })}>Signup</li>
+                    </Link>
+                    <li id="searchBar">
+                    <form className="navbar-form navbar-left" action="/action_page.php">
+                        <div className="input-group" style={{width:"200px"}}>
+                            <input type="text" class="form-control" placeholder="Search" name="search"/>
+                            <div className="input-group-btn">
+                            <button className="btn btn-default" type="submit">
+                                <i className="fa fa-search"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </form>
+                    </li>
                     </ul>
+                    
+                    
                 </div>             
                 <ul id="navbar_list">
+                
+                <Link style={{color:"#252525"}} to="/">
                     <li onClick={()=> this.setState({
                         active : 'Home',
                     })}>Home</li>
+                </Link>
                    
+                <Link style={{color:"#252525"}} to="/Categories">
                     <li onClick={()=> this.setState({
                         active : 'Categories',
-                    })}>Custom cake</li>
+                    })}>Categories</li>
+                    </Link>
+                   
                     
+                    <Link style={{color:"#252525"}} to="/CakeCompanies">
+                        <li onClick={()=> this.setState({
+                            active : 'Cake Shops',
+                        })}>Cake Shops</li>
+                    </Link>
+
                     <li onClick={()=> {
                         
                         this.setState({
                             active : 'Custom Cakes',
-                        })
-                    }}>Categories</li>
+                        })}}>Custom Cakes</li>
                     <li onClick={()=> {
                         
                         this.setState({
-                            active : 'Cupcakes & Gifts',
+                            active : 'Other',
                         })
-                    }}>Cupcakes & Gifts</li>
+                    }}>Other</li>
                 </ul>
+                
             </div>
         );
     }

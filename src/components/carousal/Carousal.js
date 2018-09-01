@@ -24,7 +24,7 @@ class App extends Component {
     return (
         <div>
             <div className="col-sm-2"></div>
-            <div className="col-sm-10">
+            <div  style={{paddingLeft:100}} className="col-sm-10">
                 <div className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner">
                     {[elem]}

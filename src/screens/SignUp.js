@@ -7,7 +7,7 @@ class SignUp extends Component {
   render() {
     return (
       <div className="align-self-center">
-        <SignUpForm/> 
+        <SignUpForm socket={this.props.socket}/> 
       </div>
     );
   }

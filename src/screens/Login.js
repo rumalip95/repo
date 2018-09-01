@@ -5,7 +5,7 @@ class Login extends Component {
   render() {
     return (
       <div style={{paddingTop : 60}} className="col-md-8 offset-md-2">
-        <Form/>
+        <Form socket={this.props.socket}/>
       </div>
     );
   }

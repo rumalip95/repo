@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class Card extends Component {
   render() {
     return (
-            <div className="card col-3 cardStyles">
+            <div className="card col-md-3 col-12 cardStyles">
                 <img className="card-img-top" src={this.props.image} width={90} alt="Card cap"/>
                 <div className="card-body">
                     <h5 className="card-title">{this.props.title}</h5>
