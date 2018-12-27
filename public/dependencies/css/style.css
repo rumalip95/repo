@@ -141,7 +141,7 @@ body{
 .btn.btn-signin:hover,
 .btn.btn-signin:active,
 .btn.btn-signin:focus {
-    background-color: rgb(12, 97, 33);
+    background-color: #db9dbe;
 }
 
 .forgot-password {
@@ -360,16 +360,18 @@ background: rgb(245, 76, 118);
 
 
 /* the middle image of the home page*/
-.mid{
+/* .mid{
     background-image: url("../pics/berry3.jpg");
     background-repeat: no-repeat;
+    background-image: url("../pics/background2.png");
+    background-repeat: repeat; 
     background-size:cover;
     width:1000px;
-    height: 600px;
+    height: 400px;
     
     
     
-}
+} */
 
 .hovarable:hover{
     cursor: pointer;
@@ -390,4 +392,19 @@ background: rgb(245, 76, 118);
 
 .uploadPic:hover{
     border:2px dashed #FF8C94;
+}
+
+.homeMid{
+    background-image: url("../pics/background4.png");
+    background-repeat: repeat; 
+}
+
+#backgroundMiddle{
+    background-image: url("../pics/background4.png");
+    background-repeat: repeat; 
+}
+
+#seviceProvider{
+    background-image: url("../pics/background4.png");
+    background-repeat: repeat; 
 }

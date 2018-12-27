@@ -44,19 +44,8 @@ class Category extends Component {
       <div>
           <img className="logo" src="./dependencies/pics/newlogo2.png"/>
           <Navbar/>
-      <div  id="backgroundMiddle" style={{backgroundColor:"#ffd4d5"}} className="col-md-8 offset-md-2">
-        <li id="searchBar">
-          <form className="navbar-form navbar-left" action="/action_page.php">
-            <div className="input-group" style={{width:"500px",paddingBottom:"20px"}}>
-              <input type="text" class="form-control" placeholder="Search Cakes" name="search"/>
-              <div className="input-group-btn">
-                <button className="btn btn-default" type="submit">
-                  <i className="fa fa-search"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </li>
+      <div  id="backgroundMiddle" style={{backgroundColor:"#ffd4d5",paddingTop:"50px"}} className="col-md-10 offset-md-1">
+       
         <div style={{textAlign:"center",paddingTop:5,fontFamily: 'Sofia'}}>
             <h1><b>Cake Categories</b></h1>
         </div>

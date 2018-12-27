@@ -8,7 +8,7 @@ class RenderFillingElements extends Component {
       <div>
             
            <FillingElement type="Vanilla Topping"/>
-                
+           <FillingElement type="Vanilla Flavour"/>    
         
       </div>
     );

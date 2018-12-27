@@ -7,7 +7,11 @@ class FillingElement extends Component {
   renderElement=(type)=>{
     switch(type){
       case"Vanilla Topping":
-        return"./dependencies/svgs/vanilla_topping.svg";
+        return"/dependencies/svgs/vanilla_topping.svg";
+        break;
+      case"Vanilla Flavour":
+      return"/dependencies/svgs/vanillaLayer.svg";
+      break;
     }
   }
 

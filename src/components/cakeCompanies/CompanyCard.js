@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -10,7 +11,9 @@ class CompanyCard extends Component {
                 <div className="card-body">
                     <h5 className="card-title">{this.props.title}</h5>
                     <p className="card-text">{this.props.text}</p>
-                    <a href="#" className="btn btn-primary cakeButton">{this.props.buttonText}</a>
+                    <Link style={{color:"#252525"}} to={this.props.to}>
+                      <a href="#" className="btn btn-primary cakeButton">{this.props.buttonText}</a>
+                    </Link>
                 </div>
             </div>
     );

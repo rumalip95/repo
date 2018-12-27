@@ -11,10 +11,10 @@ class AboutCakes extends Component {
     return (
       <div>
         <div>
-          <img className="logo" src="./dependencies/pics/newlogo2.png"/>
+          <img className="logo" src="/dependencies/pics/newlogo2.png"/>
           <Navbar/>
       </div>
-        {renderAboutCake(cakeData)}
+        {renderAboutCake(cakeData,this.props.socket)}
 
         <div>
       <Footer/>

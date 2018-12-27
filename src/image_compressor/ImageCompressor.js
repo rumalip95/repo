@@ -1,4 +1,5 @@
 import {MAX_IMAGE_HEIGHT,MAX_IMAGE_QUALITY,MAX_IMAGE_WIDTH} from "../constants/index"
+import ImageCompressor from "image-compressor.js"
 
 export const renderUploadImage = (file, name) => {
     return new Promise((resolve, reject) => {

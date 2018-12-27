@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'react-router-dom/Link';
+import {loginCustomer}from "../../redux/actions/LoginActions"
+import {connect} from "react-redux"
 
 
 class Navbar extends Component {
@@ -17,6 +19,50 @@ class Navbar extends Component {
         }
     }
 
+    renderLoginSignup=()=>{
+        return(
+            <span>
+                <Link style={{color:"#252525"}} to="/Login">
+                        <li onClick={()=> this.setState({
+                        active : 'Login',
+                    })}>Login</li>
+                    </Link>
+                    
+                    <Link style={{color:"#252525"}} to="/SignUp">
+                        <li onClick={()=> this.setState({
+                        active : 'Signup',
+                    })}>Signup</li>
+                    </Link>
+            </span>
+        )
+    }
+
+    logout=()=>{
+        this.props.loginCustomer({email:"",password:""})
+        localStorage.clear() //clearing all cookies
+    }
+
+    
+    renderUserIfLoggedIn=(userName)=>{
+        return(
+            <span className="row">
+                <li>{userName}</li>
+                <li onClick={()=>this.logout() }>Logout</li>
+            </span>
+        )
+    }
+
+    renderUser=()=>{
+        console.log(this.props.login.email)
+        if(this.props.login.email===""){
+            return this.renderLoginSignup()
+
+        }
+        else{
+            return this.renderUserIfLoggedIn(this.props.login.email)
+        }
+            
+    }
 
     render() {
         const navbar={
@@ -41,21 +87,11 @@ class Navbar extends Component {
                 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'></link>
                     <ul className="dropdown mega-dropdown" id="navbar_list" >
                     
-                    <Link style={{color:"#252525"}} to="/Login">
-                        <li onClick={()=> this.setState({
-                        active : 'Login',
-                    })}>Login</li>
-                    </Link>
-                    
-                    <Link style={{color:"#252525"}} to="/SignUp">
-                        <li onClick={()=> this.setState({
-                        active : 'Signup',
-                    })}>Signup</li>
-                    </Link>
+                    {this.renderUser()}
                     <li id="searchBar">
                     <form className="navbar-form navbar-left" action="/action_page.php">
                         <div className="input-group" style={{width:"200px"}}>
-                            <input type="text" class="form-control" placeholder="Search" name="search"/>
+                            <input type="text" className="form-control" placeholder="Search" name="search"/>
                             <div className="input-group-btn">
                             <button className="btn btn-default" type="submit">
                                 <i className="fa fa-search"></i>
@@ -76,11 +112,7 @@ class Navbar extends Component {
                     })}>Home</li>
                 </Link>
                    
-                <Link style={{color:"#252525"}} to="/Categories">
-                    <li onClick={()=> this.setState({
-                        active : 'Categories',
-                    })}>Categories</li>
-                    </Link>
+                
                    
                     
                     <Link style={{color:"#252525"}} to="/CakeCompanies">
@@ -88,18 +120,32 @@ class Navbar extends Component {
                             active : 'Cake Shops',
                         })}>Cake Shops</li>
                     </Link>
+                    
 
-                    <li onClick={()=> {
-                        
-                        this.setState({
-                            active : 'Custom Cakes',
-                        })}}>Custom Cakes</li>
-                    <li onClick={()=> {
-                        
-                        this.setState({
-                            active : 'Other',
-                        })
-                    }}>Other</li>
+                    <Link style={{color:"#252525"}} to="/CakeShopChoice">
+                        <li onClick={()=> {
+                            
+                            this.setState({
+                                active : 'Custom Cakes',
+                            })}}>Customize Your Cakes</li>
+                    </Link>
+
+                    
+
+                    <Link style={{color:"#252525"}} to="/CustomerCustomOrder">
+                    <li onClick={()=> this.setState({
+                        active : 'Customer Custom Order',
+                    })}>My Custom Orders</li>
+                    </Link>
+
+                    <Link style={{color:"#252525"}} to="/Other">
+                        <li onClick={()=> {
+                            
+                            this.setState({
+                                active : 'Other',
+                            })
+                        }}>Other</li>
+                    </Link>
                 </ul>
                 
             </div>
@@ -107,4 +153,11 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+const mapStateToProps=(state)=>{
+   return {login: state.login}
+}
+const mapActionsToProps={
+    loginCustomer
+}
+
+export default connect(mapStateToProps,mapActionsToProps) (Navbar);

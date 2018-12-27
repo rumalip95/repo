@@ -4,10 +4,11 @@ import SignUpForm from '../components/signupform/SignUpForm.js'
 
 
 class SignUp extends Component {
+  
   render() {
     return (
       <div className="align-self-center">
-        <SignUpForm socket={this.props.socket}/> 
+        <SignUpForm  socket={this.props.socket}/> 
       </div>
     );
   }

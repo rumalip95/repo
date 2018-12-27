@@ -1,6 +1,7 @@
 import React from 'react';
 import AboutCake from "./AboutCake";
 
+
 const renderDate = (date) => {;
     var dd = date.getDate();
     var mm = date.getMonth()+1; //January is 0!
@@ -17,6 +18,15 @@ const renderDate = (date) => {;
     return mm + '/' + dd + '/' + yyyy;
 }
 
-export const renderAboutCake=(data)=>{
-    return(<AboutCake id={data.id} title={data.title} weight={data.weight} price={data.price} manufacturedDate={renderDate(data.manufacturedDate)} description={data.description} />) 
+export const renderAboutCake=(data,socket)=>{
+    
+    return(
+    <div>
+    <AboutCake socket={socket} id={data.id} title={data.title} image={data.image} weight={data.weight} price={data.price}  description={data.description} />
+
+    
+    </div>
+
+   
+) 
 }

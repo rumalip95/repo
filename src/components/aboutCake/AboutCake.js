@@ -1,35 +1,70 @@
 import React, { Component } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
+import {connect} from "react-redux"
+import {loadCakes} from "../../redux/actions/ShopsActions"
+import {withRouter} from "react-router-dom"
+import { cakedCakeData } from '../cakeCompanies/CakedCakesData';
+import AboutCakeCard from './AboutCakeCard';
 
 
 class AboutCake extends Component {
+  componentDidMount(){
+    let a=this.props.location.pathname.split("/")
+    let userName=a[a.length-2]
+    
+
+    this.props.loadCakes(userName)
+}
+
+findingCake=(data)=>{
+  let a=this.props.location.pathname.split("/")
+  let id=a[a.length-1]
+  let obj={};
+  for(let i=0;i<data.length;i++){
+    if(data[i]._id===id){
+      obj=data[i];
+    }
+  }
+  return obj
+}
+
+cakeRenderedArray = (ele) => {
+ 
+    return (
+      <AboutCakeCard
+        socket={this.props.socket}
+        key={ele.id}
+        to={"/"+ele._id}
+        title={ele.title}
+        description={ele.text}
+        buttonText={"Buy It Now"}
+        image={ele.image}
+        weight={ele.weight}
+        price={ele.price}
+      />
+    )
+  
+}
+
   render() {
     return (
-      <div style={{marginTop:"20px",marginBottom:"20px",paddingTop:"20px",paddingBottom:"20px"}}>
-        <div className="row">
-          <div className="col-10 offset-1 col-md-6 offset-md-0">
-            <img src="./dependencies/pics/cakeshops1.jpg" alt="" style={{width:"100%",paddingLeft:"255px"}}/>
-
-            
-          </div>
+      <div className="col">
       
-          <div style={{textAlign:"left",paddingRight:"255px"}} className="col-10 offset-1 col-md-6 offset-md-0">
-            <h3>{this.props.title}<span style={{fontSize:"20px"}}>({this.props.weight} lbs)</span></h3>
-            <p>LKR {this.props.price}</p>
-            <p>Manufactured Date: {this.props.manufacturedDate}</p>
-            <p style={{color:"#666666"}}>{this.props.description}</p>
-            <div style={{paddingLeft:"15px",justifyContent:"centre",display:"flex"}}className="row">
-              <p style={{paddingTop:"1px",paddingBottom:"10px",height:"10px"}}>Quantity:&nbsp;</p>
-              <input style={{width:"50px"}}/>
-            </div>
-            <button style={{marginTop:"10px",marginRight:"10px"}} type="button" className="btn btn-info"><i className="fa fa-shopping-cart"/>&nbsp;Add To Cart</button>
-            <button style={{marginTop:"10px"}} type="button" className="btn btn-info"><i className="fa fa-credit-card"/>&nbsp;Buy It Now</button>
-          </div>
-        </div>
-      </div>
+          {this.cakeRenderedArray(this.findingCake(this.props.cakesData))}
+       </div>
       
     );
   }
 }
 
-export default AboutCake;
+const mapStateToProps=(state)=>{
+  
+  return{ cakesData:state.shops.cakes}
+ }
+ 
+ const mapDispatchToProps={
+  loadCakes: loadCakes
+ }
+
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)( AboutCake));

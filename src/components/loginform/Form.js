@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-
+import {withRouter} from "react-router-dom"
+import {loginCustomer}from "../../redux/actions/LoginActions"
+import {connect} from "react-redux"
 
 class Login extends Component {
 
@@ -7,7 +9,8 @@ constructor(props){
     super(props)
     this.state={
         email:"",
-        password:""
+        password:"",
+        err:""
     }
 }
 
@@ -27,6 +30,34 @@ onSubmit=(e)=>{
 }
 
   render() {
+    this.props.socket.on("password matched",(data)=>{
+       
+        localStorage.setItem('email',this.state.email)
+        localStorage.setItem('password',this.state.password)
+        this.props.loginCustomer({email:this.state.email, password:this.state.password})
+        this.props.history.push("/")
+      })
+      this.props.socket.on("password not matched",()=>{
+        console.log("password not matched")
+        this.setState({
+            err: "password not matched"
+          })
+      })
+      this.props.socket.on("user not found",()=>{
+        console.log("user not found")
+        this.setState({
+            err: "user not found"
+          })
+      })
+      this.props.socket.on("save successful",()=>{
+        console.log("save successful")
+      })
+      this.props.socket.on("internal error",()=>{
+        console.log("internal error")
+        this.setState({
+            err: "internal error"
+          })
+      })
     return (
       <div>
          <div className="container">
@@ -46,6 +77,7 @@ onSubmit=(e)=>{
                                 
                             </label>
                         </div>
+                        <p style={{color:"red"}}>{this.state.err}</p>
                         <button onClick= {(e)=>{this.onSubmit(e)}} className="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
                     </form>
                     {/* <a href="#" className="forgot-password">
@@ -59,4 +91,8 @@ onSubmit=(e)=>{
   }
 }
 
-export default Login;
+const mapActionsToProps={
+    loginCustomer
+}
+
+export default withRouter(connect(null,mapActionsToProps)(Login));

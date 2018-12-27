@@ -12,7 +12,7 @@ class Footer extends Component {
         <div className="row">
               <div className="col-md-4">
                 <center>
-                  <img src="../dependencies/pics/about us.jpg" className="img-circle" alt="Avatar"/>
+                  <img src="/dependencies/pics/about us.jpg" className="img-circle" alt="Avatar"/>
                   
                   <h4 className="footertext">Info</h4>
                   <p className="footertext">About Cakez<br/></p>
@@ -21,7 +21,7 @@ class Footer extends Component {
               </div>
               <div className="col-md-4">
                 <center>
-                  <img src="../dependencies/pics/privacyPolicy.jpg" className="img-circle" alt="..."/>
+                  <img src="/dependencies/pics/privacyPolicy.jpg" className="img-circle" alt="..."/>
                   
                   <h4 className="footertext">Privacy Policy</h4>
                   <p className="footertext">Terms & Conditions<br/></p>
@@ -29,7 +29,7 @@ class Footer extends Component {
               </div>
               <div className="col-md-4">
                 <center>
-                  <img src="../dependencies/pics/telephone.png" className="img-circle" alt="..."/>
+                  <img src="/dependencies/pics/telephone.png" className="img-circle" alt="..."/>
                  
                   <h4 className="footertext">Contact Us</h4>
                   

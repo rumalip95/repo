@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DropZone from "react-dropzone";
 import 'font-awesome/css/font-awesome.min.css';
+import { renderUploadImage } from '../../image_compressor/ImageCompressor';
 
 
 class UploadCake extends Component {
@@ -47,14 +48,24 @@ class UploadCake extends Component {
       const id = Date.now();
       const fileToUpload = acceptedFiles[0];
 
+      renderUploadImage(fileToUpload,id).then(image => { //converting blob to a base64 string and uploading
+          
+          let reader=new FileReader();
+          reader.readAsDataURL(image);
+          reader.onloadend=()=>{
+             let base64data=reader.result;
+             this.props.getImageString(base64data)
+             
+          }
+      })
+
       const uploadImage = (
         <div style={{position: 'relative', minWidth: '100px', minHeight: '100px'}}>
             <img 
                 style={{
                     width: '100%',
                     height: '100%',
-                    overflow: "hidden",
-                    filter: 'grayscale(100%)', 
+                    overflow: "hidden", 
                     opacity: '0.8'
                 }} 
                 src={fileToUpload.preview} 
@@ -82,6 +93,8 @@ class UploadCake extends Component {
   }
 
   }
+
+  
 
   render() {
     return (
