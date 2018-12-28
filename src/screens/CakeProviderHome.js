@@ -12,6 +12,11 @@ import UploadCakeProviderCake from '../components/uploadcake/UploadCakeProviderC
 import Uploading from "./Uploading"
 import { cakeData } from '../components/order/UploadedImageOrderData';
 import UploadedImageOrderCard from '../components/order/UploadedImageOrderCard';
+import { cakedCakeData } from '../components/cakeCompanies/CakedCakesData';
+import CompanyCard from '../components/cakeCompanies/CompanyCard';
+import { connect } from "react-redux"
+import { loadCakes } from "../redux/actions/ShopsActions"
+
 
 class CakeProviderHome extends Component {
 
@@ -63,14 +68,30 @@ class CakeProviderHome extends Component {
             price: "",
             isImageUploading: false,
             disabled: false,
-            show: this.uploadStatus.content
+            show: this.uploadStatus.content,
+            message:""
 
         };
 
 
     }
 
-
+    cakeRenderedArray = (data) => {
+        let a = this.props.location.pathname.split("/")
+        let userName = a[a.length - 1]
+        return data.map(ele => {
+            return (
+                <CompanyCard
+                    key={ele.id}
+                    to={"/CakeProviderHome/" + userName + "/" + ele._id}
+                    title={ele.title}
+                    text={ele.text}
+                    buttonText={"Buy Cake"}
+                    image={ele.image}
+                />
+            )
+        })
+    }
 
 
     handleChange(date) {
@@ -176,7 +197,11 @@ class CakeProviderHome extends Component {
         }
         return finalArray;
     }
-
+    changeMessage=(message)=>{
+        this.setState({
+          message
+        })
+      }
 
     componentDidMount() {
         this.props.socket.on("Uploaded Cake Image From Shop Saved", () => {
@@ -188,6 +213,20 @@ class CakeProviderHome extends Component {
         })
 
 
+        this.props.socket.on("YOUR_CAKE_WAS_SUCCESSFULLY_UPLOADED",()=>{
+            this.changeMessage("YOUR_CAKE_WAS_SUCCESSFULLY_UPLOADED")
+           })
+       
+       
+           this.props.socket.on("SAVE_ERROR",()=>{
+            this.changeMessage("SAVE_ERROR")
+            })
+
+        let a = this.props.location.pathname.split("/")
+        let userName = a[a.length - 1]
+
+
+        this.props.loadCakes(userName)
     }
 
 
@@ -197,7 +236,7 @@ class CakeProviderHome extends Component {
 
     render() {
         var cakeProvidersCakeRenderedArray = this.renderToRow(this.cakeProviderCardRender());
-
+        console.log(this.state.message)
         return (
             <div>
                 <div>
@@ -208,37 +247,38 @@ class CakeProviderHome extends Component {
                     <h1><b>Caked Cakes</b></h1>
                 </div>
 
-                <div className="col-md-2 offset-5" style={{ paddingTop: 15, fontFamily: 'Sofia' }}><h4><b>Cakes On Display</b></h4></div>
+                <div className="col-md-12 " style={{ paddingTop: 15, fontFamily: 'Sofia' ,textAlign:"center"}}><h4><b>To add a new cake to display to customers, upload a cake here and fill in the text areas accordingly.</b></h4></div>
 
 
 
                 <div className="row">
-                    <div className="col-6 offset-3" id="backgroundMiddle"  className="col-md-10 col-12 offset-md-1">
+                    <div className="col-6 offset-3" id="backgroundMiddle" className="col-md-10 col-12 offset-md-1">
                         <div id="serviceProvider" >
                             <div className="row " style={{ paddingLeft: 300, display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ marginTop: "20px", paddingBottom: "20px" }} className="col-4 col-md-6 offset-3"  >
                                     <UploadCakeProviderCake getImageString={(imageString) => this.getImageString(imageString)} />
                                     <p style={{ color: "red" }}>{this.state.error}</p>
-                                    
-                                </div>
-                                <input type="text" class="form-control" style={{width:100,marginLeft:300}} onChange={e => this.onChange(e)} value={this.state.title} placeholder="Title" name="title" />
 
-                                    <div className="form-group">
-                                        <textarea rows="3" name="text" onChange={e => this.onChange(e)} value={this.state.text} type="text" id="display_name" style={{width:400,marginLeft:150}} className="form-control input-lg" placeholder="Description" tabindex="3" />
-                                    </div>
-                                <div className="col-6 col-md-6 " style={{width:200,marginLeft:250}}>
+                                </div>
+                                <input type="text" class="form-control" style={{ width: 100, marginLeft: 300 }} onChange={e => this.onChange(e)} value={this.state.title} placeholder="Title" name="title" />
+
+                                <div className="form-group">
+                                    <textarea rows="3" name="text" onChange={e => this.onChange(e)} value={this.state.text} type="text" id="display_name" style={{ width: 400, marginLeft: 150 }} className="form-control input-lg" placeholder="Description" tabindex="3" />
+                                </div>
+                                <div className="col-6 col-md-6 " style={{ width: 200, marginLeft: 250 }}>
                                     <input type="text" class="form-control" onChange={e => this.onChange(e)} value={this.state.weight} placeholder="Weight" name="weight" />
                                     <input type="text" class="form-control" onChange={e => this.onChange(e)} value={this.state.price} placeholder="Price" name="price" />
 
                                 </div>
-                                <div onClick={(e) => { this.onSubmit(e) }} style={{ alignItems: "center", width: 150, height: 100, marginTop: 10,marginLeft:275 }} className="col-xs-6 col-md-4"><input style={{ textAlign: "centre", paddingBottom: "40px", marginBottom: "40px" }} type="submit" value="Submit" className="btn btn-primary btn-block btn-lg" tabindex="7" />
+                                <p>{this.state.message}</p>
+                                <div onClick={(e) => { this.onSubmit(e) }} style={{ alignItems: "center", width: 150, height: 100, marginTop: 10, marginLeft: 275 }} className="col-xs-6 col-md-4"><input style={{ textAlign: "centre", paddingBottom: "40px", marginBottom: "40px" }} type="submit" value="Submit" className="btn btn-primary btn-block btn-lg" tabindex="7" />
                                 </div>
                             </div>
 
 
 
-                            <div style={{ paddingLeft: 50, paddingTop: 10 }} className="col-12">
-                                {cakeProvidersCakeRenderedArray}
+                            <div className="col">
+                                {this.renderToRow(this.cakeRenderedArray(this.props.cakesData))}
                             </div>
 
 
@@ -256,4 +296,12 @@ class CakeProviderHome extends Component {
     }
 }
 
-export default withRouter(CakeProviderHome);
+const mapStateToProps = (state) => {
+    return { cakesData: state.shops.cakes }
+}
+
+const mapDispatchToProps = {
+    loadCakes: loadCakes
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CakeProviderHome));

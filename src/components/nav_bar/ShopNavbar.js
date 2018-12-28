@@ -88,18 +88,7 @@ class ShopNavbar extends Component {
                     <ul className="dropdown mega-dropdown" id="navbar_list" >
 
                         {this.renderUser()}
-                        <li id="searchBar">
-                            <form className="navbar-form navbar-left" action="/action_page.php">
-                                <div className="input-group" style={{ width: "200px" }}>
-                                    <input type="text" className="form-control" placeholder="Search" name="search" />
-                                    <div className="input-group-btn">
-                                        <button className="btn btn-default" type="submit">
-                                            <i className="fa fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </li>
+                       
                     </ul>
 
 
@@ -120,14 +109,10 @@ class ShopNavbar extends Component {
                     <Link style={{ color: "#252525" }} to="/CakeProviderHome/CustomizingOrder">
                         <li onClick={() => this.setState({
                             active: 'Home',
-                        })}>Customized Orders</li>
+                        })}>My Orders</li>
                     </Link>
 
-                    <Link style={{ color: "#252525" }} to="/">
-                        <li onClick={() => this.setState({
-                            active: 'Home',
-                        })}>Off The Shelf Orders</li>
-                    </Link>
+                    
 
                 </ul>
 

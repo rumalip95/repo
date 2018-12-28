@@ -4,14 +4,19 @@ import React, { Component } from 'react';
 
 class FillingElement extends Component {
 
+  
+
   renderElement=(type)=>{
     switch(type){
       case"Vanilla Topping":
         return"/dependencies/svgs/vanilla_topping.svg";
         break;
       case"Vanilla Flavour":
-      return"/dependencies/svgs/vanillaLayer.svg";
-      break;
+        return"/dependencies/svgs/vanillaLayer.svg";
+        break;
+      default:
+        return ""
+        break;
     }
   }
 

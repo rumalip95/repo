@@ -7,7 +7,7 @@ class Customized extends Component {
   render() {
     return (
       <div>
-      <img className="logo" src="./dependencies/pics/newlogo2.png"/>
+      <img className="logo" src="/dependencies/pics/newlogo2.png"/>
           <Navbar/>
       <div  id="backgroundMiddle" style={{backgroundColor:"#ffd4d5"}} className="col-md-10 offset-md-1">
         <div  id="customizing" className="row col-8 offset-1" style={{paddingTop :100}}>

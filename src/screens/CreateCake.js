@@ -25,7 +25,7 @@ class CreateCake extends Component {
       addCakeFlavour:false,
       isCakeFlavour:false,
       cakeFlavours:{
-        vanilla:true,
+        vanillaFlavour:true,
         Chocolate:false,
         strawberry:false,
         redvelvet:false,
@@ -52,7 +52,7 @@ class CreateCake extends Component {
 
   onChangeRadio=(e)=>{
     const toppings={
-      vanillaIcing:false,
+      vanillaTopping:false,
       whiteFondant:false,
       chocolateIcing:false,
       brownFondant:false,
@@ -96,13 +96,13 @@ class CreateCake extends Component {
 
   topping=()=>{
     if(this.onChangeCheckbox){
-      if(this.onChangeRadio){
+      if(this.onChangeRadio()){
         
       }
     }
   }
 
-  toppingSelector=(name,topic,value)=>{
+  toppingSelector=(name,topic,value,image)=>{
 
     return (
       <div>
@@ -118,6 +118,7 @@ class CreateCake extends Component {
       <div>
 
          <p>{name} <input name={topic} checked={value} onChange={e=>this.onChangeRadio(e)} type="radio"/></p>
+         
       </div>
     )
   }
@@ -241,7 +242,7 @@ onChangeCheckbox3=(e)=>{
 
               <div className="col-12 col-md-7">
               
-                <RenderFillingElements noOfLayers={this.state.noOfLayers}/>
+              <RenderFillingElements noOfLayers={this.state.noOfLayers}/>
               </div>
               <div className="col-12 col-md-5">
                 <div className="col-5" style={{paddingLeft:"0"}}>

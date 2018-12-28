@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class CakeProvidersCakeCard extends Component {
   render() {
     return (
-            <div className="card  cardStyles col-4" >
+            <div className="card  cardStyles col-3" >
                 <img style={{width:"200px",height:"200px"}} className="card-img-top" src={this.props.image} width={90} alt="Card cap"/>
                 <div className="card-body">
                     <h5 className="card-title">{this.props.title}</h5>
