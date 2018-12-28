@@ -66,9 +66,7 @@ class CreateCake extends Component {
         }
         
     })
-  }
 
-  onChangeRadio=(e)=>{
     const cakeFlavours={
       vanilla:true,
         Chocolate:false,
@@ -81,10 +79,7 @@ class CreateCake extends Component {
         [e.target.name]:e.target.value,
       }
     })
-  }
 
-
-  onChangeRadio=(e)=>{
     const fillings={
       vanillaButtercream:true,
         chocolateButtercream:false,
@@ -97,6 +92,14 @@ class CreateCake extends Component {
         [e.target.name]:e.target.value,
       }
     })
+  }
+
+  topping=()=>{
+    if(this.onChangeCheckbox){
+      if(this.onChangeRadio){
+        
+      }
+    }
   }
 
   toppingSelector=(name,topic,value)=>{
@@ -154,6 +157,8 @@ onChangeCheckbox3=(e)=>{
     isFilling: !this.state.isFilling
   })
 }
+
+
 
   render() {
     const renderToppingSelector=()=>{
